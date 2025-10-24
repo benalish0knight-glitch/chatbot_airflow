@@ -1,9 +1,9 @@
 from __future__ import annotations
-
+import os
 import pendulum
 
 from airflow.decorators import dag, task
-from airflow.models.baseoperator import chain
+
 from airflow.models.variable import Variable
 
 # Importa as funções do seu projeto
@@ -11,9 +11,9 @@ from scripts.chatbot_script import extract_and_process_data
 from modules.messaging_service import send_message_to_group
 
 # Configurações da DAG
-DAG_ID = "chatbot_data_pipeline"
-SCHEDULE = "0 8 * * 1-5"  # Executa de segunda a sexta-feira às 8:00 AM
-CONN_ID = "messaging_conn_id"
+DAG_ID = os.getenv("DAG_ID")
+SCHEDULE = os.getenv("SCHEDULE") # Executa de segunda a sexta-feira às 8:00 AM
+CONN_ID = os.getenv("CONN_ID")
 
 @dag(
     dag_id=DAG_ID,
