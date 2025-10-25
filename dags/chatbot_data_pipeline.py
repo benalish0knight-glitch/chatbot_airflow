@@ -62,4 +62,4 @@ def chatbot_data_pipeline_dag():
     message_data = process_data()
     send_report(message_data)
 
-chatbot_data_pipeline()
+chatbot_data_pipeline_dag()
