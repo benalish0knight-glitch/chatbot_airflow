@@ -12,7 +12,7 @@ from airflow.providers.telegram.operators.telegram import TelegramOperator
 # Variáveis de configuração (podem ser as mesmas do DAG principal)
 
 
-TELEGRAM_CONN_ID = os.getenv("CONNECTION_ID", "telegram_geraldinho")
+TELEGRAM_CONN_ID = os.getenv("CONNECTION_ID")
 CHAT_ID = os.getenv("HOST")
 
 @dag(
