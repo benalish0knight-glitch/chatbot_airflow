@@ -6,12 +6,12 @@ import os
 from airflow.decorators import dag, task
 # from airflow.providers.telegram.operators.telegram import TelegramOperator
 from airflow.providers.telegram.operators.telegram import TelegramOperator
-
+from dotenv import load_dotenv
 # from airflow.providers.telegram.hooks.telegram import TelegramHook
 # from airflow.operators.python import PythonOperator
 # Variáveis de configuração (podem ser as mesmas do DAG principal)
 
-
+load_dotenv()
 TELEGRAM_CONN_ID = os.getenv("CONNECTION_ID")
 CHAT_ID = os.getenv("HOST")
 
