@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import pendulum
-
+import os
 
 from airflow.decorators import dag, task
 # from airflow.providers.telegram.operators.telegram import TelegramOperator
@@ -10,8 +10,10 @@ from airflow.providers.telegram.operators.telegram import TelegramOperator
 # from airflow.providers.telegram.hooks.telegram import TelegramHook
 # from airflow.operators.python import PythonOperator
 # Variáveis de configuração (podem ser as mesmas do DAG principal)
-TELEGRAM_CONN_ID = "telegram_default"
-CHAT_ID = "-4816469345"
+
+
+TELEGRAM_CONN_ID = os.getenv("CONNECTION_ID", "telegram_geraldinho")
+CHAT_ID = os.getenv("HOST")
 
 @dag(
     dag_id="telegram_chatbot_health_check",
